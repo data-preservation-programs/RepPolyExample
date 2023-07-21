@@ -1,14 +1,10 @@
-import {Polybase, PolybaseError} from "@polybase/client";
-import {CollectionNames, DefaultNamespace, filfox} from "@dataprograms/repdao-polybase";
-
-const polydb = new Polybase({
-    defaultNamespace: DefaultNamespace,
-})
+import {PolybaseError} from "@polybase/client";
+import {CollectionNames, DB, filfox} from "@dataprograms/repdao-polybase";
 
 const provider = 'f01889512'
 
 // Use typescript types
-const doc = (await polydb.collection('filfox')
+const doc = (await DB.collection('filfox')
     .where('provider', '==', provider)
     .limit(1).get())
     .data[0].data as filfox
@@ -18,7 +14,7 @@ console.log(`Filfox record for ${provider}: total rewards: ${doc.totalRewards}`)
 for (const collectionName of CollectionNames) {
     let response
     try {
-        response = await polydb.collection(collectionName).where('provider', '==', provider).limit(1).get()
+        response = await DB.collection(collectionName).where('provider', '==', provider).limit(1).get()
     } catch (e: any) {
         if (e instanceof PolybaseError) {
             console.error(`Polybase error: ${e.code} ${e.message} when retrieving ${collectionName} record for ${provider}`)
