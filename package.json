@@ -1,0 +1,19 @@
+{
+  "name": "reppolyexample",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node-esm index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dataprograms/repdao-polybase": "^1.0.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}
