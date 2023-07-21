@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dataprograms/repdao-polybase": "^1.0.3"
+    "@dataprograms/repdao-polybase": "^1.0.5"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
